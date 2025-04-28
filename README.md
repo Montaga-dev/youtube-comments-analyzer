@@ -218,10 +218,6 @@ def analyze_sentiment_over_time(comments):
     return df.groupby('timestamp')['sentiment'].value_counts()
 ```
 
-## 🤝 Contributing
-
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
 ### Development Process
 1. Fork the repository
 2. Create your feature branch
@@ -229,22 +225,12 @@ We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.
 4. Push to the branch
 5. Create a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 🔗 Additional Resources
 
 - [YouTube Data API Documentation](https://developers.google.com/youtube/v3)
 - [TextBlob Documentation](https://textblob.readthedocs.io/)
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [React Documentation](https://reactjs.org/)
-
-## 📧 Contact
-
-For questions and support, please open an issue or contact:
-- Email: your.email@example.com
-- Twitter: @yourusername
 
 ## 🙏 Acknowledgments
 
