@@ -25,7 +25,7 @@ app.add_middleware(
 )
 
 # Get API key from environment variable
-API_KEY = os.getenv("YOUTUBE_API_KEY", "AIzaSyCYQ9a0lhLLhVLXJFyw8pVsuHBk7Wpd_7o")
+API_KEY = os.getenv("YOUTUBE_API_KEY", "YOUTUBE_API_KEY")
 youtube = build('youtube', 'v3', developerKey=API_KEY)
 
 class CommentResponse(BaseModel):
