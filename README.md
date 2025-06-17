@@ -1,258 +1,156 @@
-# YouTube Comments Sentiment Analyzer
+# 🎯 YouTube Sentiment Analyzer
 
-A modern full-stack application for collecting, analyzing, and understanding YouTube comment sentiments. Built with FastAPI, React, and machine learning capabilities.
+A modern full-stack web application for analyzing YouTube comment sentiments using advanced machine learning techniques.
 
-![YouTube Sentiment Analysis](https://your-screenshot-url.png)
+![Demo](https://img.shields.io/badge/Demo-Live-green) ![Version](https://img.shields.io/badge/Version-1.0.0-blue) ![License](https://img.shields.io/badge/License-MIT-yellow)
 
-## 🎯 Purpose
+## ✨ Features
 
-This tool serves two main purposes:
-1. **Comment Analysis Tool**: Fetch and analyze YouTube video comments with sentiment classification
-2. **ML Research Platform**: Collect labeled data for training custom sentiment analysis models
+- **📊 Real-time Sentiment Analysis** - Analyze YouTube comments using TextBlob and Transformer models
+- **🤖 Multiple ML Models** - BERT, RoBERTa, DeBERTa support with pattern-based enhancements
+- **📈 Interactive Visualizations** - Beautiful charts and data visualization
+- **💾 Data Export** - Download analysis results as CSV
+- **🎨 Modern UI** - Responsive design with Tailwind CSS
+- **⚡ Fast Performance** - Optimized backend with FastAPI
 
-## 🌟 Features
+## 🏗️ Tech Stack
 
-### Application Features
-- Modern, responsive UI with video background
-- Real-time sentiment analysis of YouTube comments
-- CSV export functionality
-- Interactive data visualization
-- Error handling and loading states
-- Accessible and keyboard-friendly interface
+**Frontend:**
+- React.js + Tailwind CSS
+- Recharts for data visualization
+- Framer Motion for animations
 
-### Data Science Features
-- Automated data collection pipeline
-- Sentiment labeling (Positive, Neutral, Negative)
-- Structured data export for ML training
-- Basic sentiment analysis using TextBlob
-- Extensible architecture for custom ML models
-
-## 🛠 Tech Stack
-
-### Backend
-- FastAPI (Python web framework)
-- TextBlob (Natural Language Processing)
+**Backend:**
+- FastAPI (Python)
+- Hugging Face Transformers
+- TextBlob for NLP
 - YouTube Data API v3
-- Pandas (Data manipulation)
 
-### Frontend
-- React.js
-- Tailwind CSS
-- Heroicons
-- Modern animations and transitions
-
-## 📊 Data Science Applications
-
-### 1. Data Collection
-- Automated comment fetching
-- Structured data storage
-- Metadata preservation
-- Time-based analysis support
-
-### 2. Sentiment Analysis
-```python
-{
-    "comment_text": "This video was amazing!",
-    "sentiment": "Positive",
-    "confidence_score": 0.89,
-    "video_id": "abc123",
-    "timestamp": "2024-02-20T10:30:00Z"
-}
-```
-
-### 3. Research Applications
-- Social media sentiment analysis
-- User engagement studies
-- Content effectiveness research
-- Brand sentiment tracking
-
-## 🚀 Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
 - Python 3.8+
 - Node.js 14+
 - YouTube Data API key
-- Git
 
-### Backend Setup
-
-1. **Clone the repository:**
-   ```bash
-   git clone https://github.com/yourusername/youtube-sentiment-analyzer.git
-   cd youtube-sentiment-analyzer
-   ```
-
-2. **Set up Python environment:**
-   ```bash
-   cd server
-   python -m venv venv
-   
-   # Windows
-   venv\Scripts\activate
-   
-   # macOS/Linux
-   source venv/bin/activate
-   ```
-
-3. **Install dependencies:**
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. **Configure environment:**
-   Create `.env` file in server directory:
-   ```env
-   YOUTUBE_API_KEY=your_api_key_here
-   ```
-
-5. **Run the server:**
-   ```bash
-   uvicorn main:app --reload
-   ```
-
-### Frontend Setup
-
-1. **Navigate to frontend directory:**
-   ```bash
-   cd client
-   ```
-
-2. **Install dependencies:**
-   ```bash
-   npm install
-   ```
-
-3. **Start development server:**
-   ```bash
-   npm start
-   ```
-
-## 💻 Usage
-
-### Basic Usage
-1. Open http://localhost:3000
-2. Paste a YouTube video URL
-3. Click "Fetch Comments"
-4. View sentiment analysis results
-5. Download data as CSV
-
-### Data Collection
-```python
-# Example of collected data structure
-{
-    "video_id": "abc123",
-    "comments": [
-        {
-            "text": "Great video!",
-            "sentiment": "Positive",
-            "timestamp": "2024-02-20T10:30:00Z"
-        },
-        # ... more comments
-    ]
-}
+### 1. Clone Repository
+```bash
+git clone https://github.com/yourusername/youtube-sentiment-analyzer.git
+cd youtube-sentiment-analyzer
 ```
 
-## 🔬 Research & Development
-
-### Machine Learning Pipeline
-1. **Data Collection**
-   - Automated comment fetching
-   - Sentiment labeling
-   - Data cleaning
-
-2. **Model Development**
-   ```python
-   class SentimentAnalyzer:
-       def __init__(self):
-           self.model = None
-           self.preprocessor = TextPreprocessor()
-
-       def train(self, data):
-           # Training implementation
-           pass
-
-       def predict(self, text):
-           # Prediction implementation
-           pass
-   ```
-
-3. **Analysis Capabilities**
-   - Basic sentiment analysis
-   - Emotion detection
-   - Topic modeling
-   - Engagement patterns
-
-### Extending the Platform
-
-1. **Custom Models**
-   ```python
-   # Example of custom model integration
-   class CustomSentimentModel:
-       def __init__(self):
-           self.model = load_custom_model()
-           
-       def analyze(self, text):
-           preprocessed = preprocess_text(text)
-           return self.model.predict(preprocessed)
-   ```
-
-2. **Additional Features**
-   - Multi-language support
-   - Advanced sentiment metrics
-   - Real-time analysis
-   - Batch processing
-
-## 📈 Data Analysis Examples
-
-### Sentiment Distribution
-```python
-def analyze_sentiment_distribution(comments):
-    sentiments = [analyze_sentiment(comment) for comment in comments]
-    return pd.Series(sentiments).value_counts()
+### 2. Backend Setup
+```bash
+cd server
+python -m venv venv
+venv\Scripts\activate  # Windows
+pip install -r requirements.txt
 ```
 
-### Time-based Analysis
-```python
-def analyze_sentiment_over_time(comments):
-    df = pd.DataFrame(comments)
-    return df.groupby('timestamp')['sentiment'].value_counts()
+Create `.env` file from example:
+```bash
+cp env.example.txt .env
+# Edit .env and add your actual API key
 ```
+
+Or create `.env` manually:
+```env
+YOUTUBE_API_KEY=your_api_key_here
+```
+
+Start server:
+```bash
+python main.py
+```
+
+### 3. Frontend Setup
+```bash
+cd client
+npm install
+npm start
+```
+
+### 4. Access Application
+Open http://localhost:3000 in your browser
+
+## 💡 Usage
+
+1. **Fetch Comments**: Enter a YouTube URL to fetch comments
+2. **Choose Analysis Method**: Select between TextBlob or Transformer models
+3. **Analyze**: Get sentiment classification (Positive/Neutral/Negative)
+4. **Visualize**: View results in interactive charts
+5. **Export**: Download data as CSV for further analysis
+
+## 🤖 ML Models
+
+- **TextBlob**: Fast, lightweight sentiment analysis
+- **BERT**: State-of-the-art transformer model
+- **RoBERTa**: Optimized BERT variant
+- **DeBERTa**: Microsoft's improved transformer
+- **Pattern Enhancement**: Keyword and emoji-based sentiment detection
+
+## 📁 Project Structure
+
+```
+youtube-sentiment-analyzer/
+├── client/                 # React frontend
+│   ├── src/
+│   │   ├── components/     # React components
+│   │   └── assets/         # Static files
+│   └── package.json
+├── server/                 # FastAPI backend
+│   ├── ml/                 # ML models and pipeline
+│   ├── main.py            # API server
+│   └── requirements.txt
+└── README.md
+```
+
+## 🔧 Configuration
+
+### YouTube API Setup
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing
+3. Enable YouTube Data API v3
+4. Create credentials (API key)
+5. Add API key to `.env` file
+
+### Model Configuration
+Models are automatically downloaded on first use. Supported models:
+- `bert-base-uncased`
+- `roberta-base`
+- `microsoft/deberta-base`
+
+## 📊 API Endpoints
+
+- `GET /comments/raw` - Fetch YouTube comments
+- `POST /analyze_sentiment` - Analyze sentiment
+- `GET /ml/models` - Get available models
+- `POST /ml/analyze` - ML-based analysis
+- `GET /demo/comments` - Demo data
 
 ## 🤝 Contributing
 
-We welcome contributions! Please see our [Contributing Guidelines](CONTRIBUTING.md) for details.
-
-### Development Process
 1. Fork the repository
-2. Create your feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+2. Create feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit changes (`git commit -m 'Add amazing feature'`)
+4. Push to branch (`git push origin feature/amazing-feature`)
+5. Open Pull Request
 
-## 📄 License
+## 📝 License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🔗 Additional Resources
-
-- [YouTube Data API Documentation](https://developers.google.com/youtube/v3)
-- [TextBlob Documentation](https://textblob.readthedocs.io/)
-- [FastAPI Documentation](https://fastapi.tiangolo.com/)
-- [React Documentation](https://reactjs.org/)
-
-## 📧 Contact
-
-For questions and support, please open an issue or contact:
-- Email: your.email@example.com
-- Twitter: @yourusername
+This project is licensed under the MIT License. See [LICENSE](LICENSE) file for details.
 
 ## 🙏 Acknowledgments
 
-- YouTube Data API team
-- TextBlob developers
-- FastAPI community
-- React community
+- [Hugging Face](https://huggingface.co/) for transformer models
+- [YouTube Data API](https://developers.google.com/youtube/v3) for data access
+- [FastAPI](https://fastapi.tiangolo.com/) for the excellent framework
+- [React](https://reactjs.org/) community
+
+## 📧 Support
+
+For support, please open an issue or contact the maintainers.
 
 ---
 
-**Note**: This project is for research and educational purposes. Please ensure compliance with YouTube's terms of service and API usage guidelines. 
+**⚠️ Note**: Please ensure compliance with YouTube's API terms of service. This project is for educational and research purposes. 
