@@ -1,6 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { BeakerIcon, CpuChipIcon, SparklesIcon } from '@heroicons/react/24/outline';
+import { API_BASE_URL } from '../config';
 
 const MLDashboard = ({ comments, initialSentimentMethod = 'textblob', initialSelectedModel = '', onAnalysisComplete }) => {
   const [availableModels, setAvailableModels] = useState([]);
@@ -36,7 +37,7 @@ const MLDashboard = ({ comments, initialSentimentMethod = 'textblob', initialSel
 
   const fetchAvailableModels = async () => {
     try {
-      const response = await fetch('http://localhost:8000/ml/models');
+      const response = await fetch(`${API_BASE_URL}/ml/models`);
       const data = await response.json();
       setAvailableModels(data.models);
     } catch (err) {
@@ -54,7 +55,7 @@ const MLDashboard = ({ comments, initialSentimentMethod = 'textblob', initialSel
     setError(null);
     try {
       const texts = comments.map(comment => comment.comment);
-      const response = await fetch('http://localhost:8000/ml/analyze', {
+      const response = await fetch(`${API_BASE_URL}/ml/analyze`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -73,6 +73,42 @@ npm start
 ### 4. Access Application
 Open http://localhost:3000 in your browser
 
+## 🚀 **Free Deployment Options**
+
+### Option 1: Railway (Recommended - One-click Deploy)
+[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app)
+
+1. Go to [Railway.app](https://railway.app)
+2. Connect your GitHub repository
+3. Railway auto-detects the full-stack setup
+4. Add environment variables:
+   - `YOUTUBE_API_KEY=your_api_key_here`
+5. Deploy automatically!
+
+### Option 2: Render (Split Deploy)
+**Backend:**
+1. Go to [Render.com](https://render.com)
+2. Create new "Web Service"
+3. Connect GitHub repo, set root directory to `server`
+4. Add environment variable: `YOUTUBE_API_KEY`
+
+**Frontend:**
+1. Create new "Static Site"
+2. Root directory: `client`
+3. Build command: `npm run build`
+4. Publish directory: `build`
+
+### Option 3: Vercel + Railway
+**Frontend (Vercel):**
+```bash
+cd client
+npx vercel --prod
+```
+
+**Backend (Railway):**
+- Deploy backend separately on Railway
+- Update `REACT_APP_API_URL` in Vercel
+
 ## 💡 Usage
 
 1. **Fetch Comments**: Enter a YouTube URL to fetch comments
@@ -129,22 +165,28 @@ Models are automatically downloaded on first use. Supported models:
 - `GET /demo/comments` - Demo data
 
 ## 🤝 Contributing
+
+=======
+### Development Process
+>>>>>>> ff586f39b23de4e8e874c1bb5f0404ca6f55a641
 1. Fork the repository
 2. Create feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit changes (`git commit -m 'Add amazing feature'`)
 4. Push to branch (`git push origin feature/amazing-feature`)
 5. Open Pull Request
 
+<<<<<<< HEAD
 ## 📝 License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) file for details.
-
+=======
 ## 🔗 Additional Resources
 
 - [YouTube Data API Documentation](https://developers.google.com/youtube/v3)
 - [TextBlob Documentation](https://textblob.readthedocs.io/)
 - [FastAPI Documentation](https://fastapi.tiangolo.com/)
 - [React Documentation](https://reactjs.org/)
+>>>>>>> ff586f39b23de4e8e874c1bb5f0404ca6f55a641
 
 ## 🙏 Acknowledgments
 
@@ -159,4 +201,8 @@ For support, please open an issue or contact the maintainers.
 
 ---
 
-**⚠️ Note**: This project is for research and educational purposes. Please ensure compliance with YouTube's API terms of service and usage guidelines.
+<<<<<<< HEAD
+**⚠️ Note**: Please ensure compliance with YouTube's API terms of service. This project is for educational and research purposes. 
+=======
+**Note**: This project is for research and educational purposes. Please ensure compliance with YouTube's terms of service and API usage guidelines. 
+>>>>>>> ff586f39b23de4e8e874c1bb5f0404ca6f55a641

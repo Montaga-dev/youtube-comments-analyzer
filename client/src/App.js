@@ -6,6 +6,7 @@ import { motion } from 'framer-motion';
 import youtubeLogo from './assets/youtube_logo.png';
 import backgroundVideo from './assets/background_video.mp4';
 import MLDashboard from './components/MLDashboard';
+import { API_BASE_URL } from './config';
 
 function App() {
   const [url, setUrl] = useState('');
@@ -31,7 +32,7 @@ function App() {
   useEffect(() => {
     const fetchModels = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/ml/models');
+        const response = await axios.get(`${API_BASE_URL}/ml/models`);
         setAvailableModels(response.data.models);
         if (response.data.models.length > 0) {
           setSelectedModel(response.data.models[0]);
@@ -43,7 +44,7 @@ function App() {
 
     const fetchApiStatus = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/api/status');
+        const response = await axios.get(`${API_BASE_URL}/api/status`);
         setApiStatus(response.data);
       } catch (err) {
         console.error('Failed to fetch API status:', err);
@@ -96,10 +97,10 @@ function App() {
       let response;
       if (forceDemo) {
         // Use demo endpoint
-        response = await axios.get(`http://localhost:8000/demo/comments?max_comments=50&category=tech`);
+        response = await axios.get(`${API_BASE_URL}/demo/comments?max_comments=50&category=tech`);
       } else {
         // Fetch raw comments without sentiment analysis
-        response = await axios.get(`http://localhost:8000/comments/raw?url=${encodeURIComponent(url)}&max_comments=${maxComments}&max_pages=${maxPages}&use_demo=${demoMode}`);
+        response = await axios.get(`${API_BASE_URL}/comments/raw?url=${encodeURIComponent(url)}&max_comments=${maxComments}&max_pages=${maxPages}&use_demo=${demoMode}`);
       }
       
       setRawComments(response.data.comments);
@@ -118,7 +119,7 @@ function App() {
       // If quota exceeded, try demo mode
       if (err.response?.status === 429 || errorMessage.includes('quota')) {
         try {
-          const demoResponse = await axios.get(`http://localhost:8000/demo/comments?max_comments=50&category=tech`);
+          const demoResponse = await axios.get(`${API_BASE_URL}/demo/comments?max_comments=50&category=tech`);
           setRawComments(demoResponse.data.comments);
           setComments([]);
           setStats(demoResponse.data.stats);
@@ -159,7 +160,7 @@ function App() {
     setAnalyzingLoading(true);
     setError('');
     try {
-      const response = await axios.post('http://localhost:8000/analyze_sentiment', {
+      const response = await axios.post(`${API_BASE_URL}/analyze_sentiment`, {
         comments: rawComments,
         method: sentimentMethod,
         model_name: sentimentMethod === 'transformer' ? selectedModel : null
