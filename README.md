@@ -129,7 +129,6 @@ Models are automatically downloaded on first use. Supported models:
 - `GET /demo/comments` - Demo data
 
 ## 🤝 Contributing
-
 1. Fork the repository
 2. Create feature branch (`git checkout -b feature/amazing-feature`)
 3. Commit changes (`git commit -m 'Add amazing feature'`)
@@ -139,6 +138,13 @@ Models are automatically downloaded on first use. Supported models:
 ## 📝 License
 
 This project is licensed under the MIT License. See [LICENSE](LICENSE) file for details.
+
+## 🔗 Additional Resources
+
+- [YouTube Data API Documentation](https://developers.google.com/youtube/v3)
+- [TextBlob Documentation](https://textblob.readthedocs.io/)
+- [FastAPI Documentation](https://fastapi.tiangolo.com/)
+- [React Documentation](https://reactjs.org/)
 
 ## 🙏 Acknowledgments
 
@@ -153,4 +159,4 @@ For support, please open an issue or contact the maintainers.
 
 ---
 
-**⚠️ Note**: Please ensure compliance with YouTube's API terms of service. This project is for educational and research purposes. 
+**⚠️ Note**: This project is for research and educational purposes. Please ensure compliance with YouTube's API terms of service and usage guidelines.

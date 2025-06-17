@@ -39,6 +39,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
+<<<<<<< HEAD
 # Mount static files directory
 app.mount("/static", StaticFiles(directory="server/static"), name="static")
 
@@ -112,6 +113,11 @@ def exponential_backoff_retry(func, max_retries=MAX_RETRIES, base_delay=BASE_DEL
 
 # Initialize ML pipeline
 ml_pipeline = MLPipeline()
+=======
+# Get API key from environment variable
+API_KEY = os.getenv("YOUTUBE_API_KEY", "YOUTUBE_API_KEY")
+youtube = build('youtube', 'v3', developerKey=API_KEY)
+>>>>>>> ff586f39b23de4e8e874c1bb5f0404ca6f55a641
 
 class CommentResponse(BaseModel):
     comments: List[Dict[str, str]]
@@ -536,4 +542,4 @@ async def analyze_sentiment_endpoint(request: SentimentAnalysisRequest):
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000) 
+    uvicorn.run(app, host="0.0.0.0", port=8000)
