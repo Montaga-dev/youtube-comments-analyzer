@@ -53,6 +53,7 @@ cp env.example.txt .env
 # Edit .env and add your actual API key
 ```
 
+<<<<<<< HEAD
 Or create `.env` manually:
 ```env
 YOUTUBE_API_KEY=your_api_key_here
@@ -72,42 +73,6 @@ npm start
 
 ### 4. Access Application
 Open http://localhost:3000 in your browser
-
-## 🚀 **Free Deployment Options**
-
-### Option 1: Railway (Recommended - One-click Deploy)
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app)
-
-1. Go to [Railway.app](https://railway.app)
-2. Connect your GitHub repository
-3. Railway auto-detects the full-stack setup
-4. Add environment variables:
-   - `YOUTUBE_API_KEY=your_api_key_here`
-5. Deploy automatically!
-
-### Option 2: Render (Split Deploy)
-**Backend:**
-1. Go to [Render.com](https://render.com)
-2. Create new "Web Service"
-3. Connect GitHub repo, set root directory to `server`
-4. Add environment variable: `YOUTUBE_API_KEY`
-
-**Frontend:**
-1. Create new "Static Site"
-2. Root directory: `client`
-3. Build command: `npm run build`
-4. Publish directory: `build`
-
-### Option 3: Vercel + Railway
-**Frontend (Vercel):**
-```bash
-cd client
-npx vercel --prod
-```
-
-**Backend (Railway):**
-- Deploy backend separately on Railway
-- Update `REACT_APP_API_URL` in Vercel
 
 ## 💡 Usage
 

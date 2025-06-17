@@ -33,15 +33,19 @@ app = FastAPI()
 # Configure CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # React app will run on port 3000
+    allow_origins=["*"],  # Allow all origins for production
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
 
-<<<<<<< HEAD
-# Mount static files directory
-app.mount("/static", StaticFiles(directory="server/static"), name="static")
+# Mount static files directory for frontend
+import os
+static_dir = os.path.join(os.path.dirname(__file__), "static")
+if os.path.exists(static_dir):
+    app.mount("/static", StaticFiles(directory=static_dir), name="static")
+    # Serve React app on root
+    app.mount("/", StaticFiles(directory=static_dir, html=True), name="spa")
 
 # Get API keys from configuration
 API_KEYS = get_api_keys()
@@ -113,11 +117,6 @@ def exponential_backoff_retry(func, max_retries=MAX_RETRIES, base_delay=BASE_DEL
 
 # Initialize ML pipeline
 ml_pipeline = MLPipeline()
-=======
-# Get API key from environment variable
-API_KEY = os.getenv("YOUTUBE_API_KEY", "YOUTUBE_API_KEY")
-youtube = build('youtube', 'v3', developerKey=API_KEY)
->>>>>>> ff586f39b23de4e8e874c1bb5f0404ca6f55a641
 
 class CommentResponse(BaseModel):
     comments: List[Dict[str, str]]
